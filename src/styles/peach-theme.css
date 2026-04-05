@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+    /* ── Backgrounds (Garlic Beige) ── */
+    --bg-base: #f5f5dc;
+    --bg-surface: #fdfdf2;
+    --bg-elevated: #ffffff;
+    --bg-card: #fffef6;
+
+    /* ── Basil Green (Primary accent) ── */
+    --basil-50: #eef3e6;
+    --basil-100: #d4e4b8;
+    --basil-200: #a8c87c;
+    --basil-300: #7aad52;
+    --basil-400: #4e6e2f;
+    --basil-500: #3a5220;
+    --basil-glow: rgba(78, 110, 47, 0.18);
+    --basil-glow-strong: rgba(78, 110, 47, 0.32);
+
+    /* ── Shrimp Pink (Secondary / Action) ── */
+    --shrimp-100: #ffe8e4;
+    --shrimp-200: #ffcec7;
+    --shrimp-300: #ffb0a5;
+    --shrimp-400: #ff8e7e;
+    --shrimp-500: #ff6b57;
+    --shrimp-glow: rgba(255, 142, 126, 0.25);
+
+    /* ── Chili Red (Critical) ── */
+    --chili-300: #e74c3c;
+    --chili-400: #c0392b;
+    --chili-glow: rgba(192, 57, 43, 0.18);
+
+    /* ── Soy Sauce (Text) ── */
+    --text-primary: #4b3621;
+    --text-secondary: #7a6248;
+    --text-muted: #b09880;
+    --text-inverse: #fdfdf2;
+
+    /* ── Chart colors ── */
+    --chart-bar: #4e6e2f;
+    --chart-line: #ff8e7e;
+    --chart-area: rgba(78, 110, 47, 0.1);
+
+    /* ── Borders ── */
+    --border-subtle: rgba(78, 110, 47, 0.15);
+    --border-active: rgba(78, 110, 47, 0.45);
+    --border-card: rgba(75, 54, 33, 0.1);
+
+    /* ── Legacy aliases (keep for compatibility) ── */
+    --peach-400: #ff8e7e;
+    --peach-glow: rgba(255, 142, 126, 0.2);
+    --rose-400: #ff8e7e;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Sarabun", "DM Sans", sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle wok-steam texture on background */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at 15% 40%,
+            rgba(78, 110, 47, 0.06) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 85% 20%,
+            rgba(255, 142, 126, 0.05) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse at 55% 85%,
+            rgba(78, 110, 47, 0.04) 0%,
+            transparent 45%
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+#app {
+    position: relative;
+    z-index: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(78, 110, 47, 0.35);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(78, 110, 47, 0.55);
+}
+
+/* Animations */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.fade-slide-up {
+    animation: fadeSlideUp 0.4s ease forwards;
+}

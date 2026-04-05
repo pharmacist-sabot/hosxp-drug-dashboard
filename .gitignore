@@ -1,0 +1,15 @@
+# Node dependencies
+node_modules/
+
+# Vite / frontend build output
+dist/
+
+# Tauri / Rust build artifacts and transient CLI state
+src-tauri/target/
+.tauri/
+
+# Local environment files that may contain secrets
+.env
+
+# macOS Finder metadata
+.DS_Store
