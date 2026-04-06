@@ -127,7 +127,7 @@ function selectHighlighted() {
     border: none;
     outline: none;
     color: var(--text-primary);
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 14px;
 }
 
@@ -184,7 +184,7 @@ function selectHighlighted() {
 }
 
 .drug-code {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Tahoma', sans-serif;
     font-size: 12px;
     color: var(--basil-400);
     white-space: nowrap;

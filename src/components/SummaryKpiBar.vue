@@ -111,7 +111,7 @@ const peakMonthName = computed(() => {
 }
 
 .kpi-value {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 28px;
     font-weight: 700;
     color: var(--basil-400);

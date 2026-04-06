@@ -122,7 +122,7 @@ async function handleConnect() {
 }
 
 .modal-header h2 {
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: var(--text-primary);
@@ -193,7 +193,7 @@ async function handleConnect() {
     border-radius: 8px;
     padding: 10px 14px;
     color: var(--text-primary);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Tahoma', sans-serif;
     font-size: 14px;
     transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
@@ -225,7 +225,7 @@ async function handleConnect() {
     border-radius: 10px;
     padding: 12px;
     color: #fff;
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;

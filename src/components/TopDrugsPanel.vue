@@ -78,7 +78,7 @@ function selectDrug(icode: string) {
 }
 
 .panel-header h3 {
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 13px;
     font-weight: 700;
     color: var(--text-secondary);
@@ -87,7 +87,7 @@ function selectDrug(icode: string) {
 }
 
 .year-badge {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Tahoma', sans-serif;
     font-size: 12px;
     background: var(--basil-50);
     color: var(--basil-400);
@@ -132,7 +132,7 @@ function selectDrug(icode: string) {
 }
 
 .drug-rank {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 17px;
     font-weight: 700;
     color: var(--text-muted);
@@ -161,7 +161,7 @@ function selectDrug(icode: string) {
 }
 
 .drug-code {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Tahoma', sans-serif;
     font-size: 10px;
     color: var(--text-muted);
     margin-bottom: 5px;
@@ -182,7 +182,7 @@ function selectDrug(icode: string) {
 }
 
 .drug-qty {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Tahoma', sans-serif;
     font-size: 11px;
     color: var(--basil-400);
     white-space: nowrap;

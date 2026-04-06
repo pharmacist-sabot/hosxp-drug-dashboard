@@ -194,7 +194,7 @@ onMounted(async () => {
 }
 
 .brand-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #ffffff;
@@ -337,7 +337,7 @@ onMounted(async () => {
     align-items: center;
     gap: 14px;
     font-size: 13px;
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-weight: 600;
     backdrop-filter: blur(10px);
     z-index: 999;

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+/* Tahoma is a system font — no external import needed */
 
 :root {
     /* ── Backgrounds (Garlic Beige) ── */
@@ -69,7 +69,7 @@ body,
 }
 
 body {
-    font-family: "Sarabun", "DM Sans", sans-serif;
+    font-family: "Tahoma", "Helvetica Neue", sans-serif;
     background-color: var(--bg-base);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;

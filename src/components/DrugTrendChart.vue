@@ -79,7 +79,7 @@ const chartOption = computed(() => {
             backgroundColor: '#FFFFFF',
             borderColor: 'rgba(78,110,47,0.4)',
             borderWidth: 1,
-            textStyle: { color: '#4B3621', fontFamily: 'Sarabun' },
+            textStyle: { color: '#4B3621', fontFamily: 'Tahoma' },
             formatter: (params: any[]) => {
                 const bar = params.find((p: any) => p.seriesName === 'จำนวนจ่าย')
                 const line = params.find((p: any) => p.seriesName === 'แนวโน้ม')
@@ -105,7 +105,7 @@ const chartOption = computed(() => {
             data: THAI_MONTHS_SHORT,
             axisLabel: {
                 color: '#7A6248',
-                fontFamily: 'Sarabun',
+                fontFamily: 'Tahoma',
                 fontSize: 13,
             },
             axisLine: { lineStyle: { color: 'rgba(78,110,47,0.15)' } },
@@ -115,7 +115,7 @@ const chartOption = computed(() => {
             type: 'value',
             axisLabel: {
                 color: '#B09880',
-                fontFamily: 'JetBrains Mono',
+                fontFamily: 'Tahoma',
                 fontSize: 11,
                 formatter: (v: number) =>
                     v >= 1000 ? (v / 1000).toFixed(1) + 'K' : v.toString(),
@@ -220,14 +220,14 @@ const chartOption = computed(() => {
 }
 
 .drug-name-title {
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: var(--text-primary);
 }
 
 .drug-code-title {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Tahoma', sans-serif;
     font-size: 12px;
     color: var(--basil-400);
     font-weight: 600;
@@ -256,7 +256,7 @@ const chartOption = computed(() => {
 }
 
 .total-value {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: var(--basil-400);

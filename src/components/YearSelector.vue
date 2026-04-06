@@ -58,7 +58,7 @@ function onYearChange() {
     border-radius: 8px;
     padding: 8px 32px 8px 14px;
     color: var(--text-primary);
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Tahoma', sans-serif;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
