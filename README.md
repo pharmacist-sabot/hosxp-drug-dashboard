@@ -1,11 +1,14 @@
 # HOSxP Drug Dashboard
 
-![Vue.js](https://img.shields.io/badge/vue-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Tauri](https://img.shields.io/badge/tauri-%2324C8DB.svg?style=for-the-badge&logo=tauri&logoColor=%23FFFFFF)
-![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
+[![Tauri](https://img.shields.io/badge/Tauri-2.5.0-24c8db?logo=tauri&logoColor=fff)](https://tauri.app/)
+[![Vue.js](https://img.shields.io/badge/Vue-3.5.13-4FC08D?logo=vue.js&logoColor=fff)](https://vuejs.org/)
+[![Rust](https://img.shields.io/badge/Rust-1.80+-f74c00?logo=rust&logoColor=fff)](https://www.rust-lang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-3178C6?logo=typescript&logoColor=fff)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.5-B73BFE?logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![Pinia](https://img.shields.io/badge/Pinia-2.1.7-F6D365?logo=pinia&logoColor=black)](https://pinia.vuejs.org/)
+[![Apache ECharts](https://img.shields.io/badge/ECharts-5.5.1-AA344D?logo=apacheecharts&logoColor=white)](https://echarts.apache.org/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0+-005C84?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A modern, high-performance desktop application for monitoring and visualizing drug data directly from HOSxP database systems. Built with top-tier web technologies and a blazingly fast Rust backend.
 
