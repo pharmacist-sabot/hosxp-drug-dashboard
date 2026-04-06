@@ -1,6 +1,6 @@
 <template>
 <div class="year-selector">
-    <label>ปีงบประมาณ</label>
+    <label>ปี พ.ศ.</label>
     <select v-model="selectedCeYear" @change="onYearChange" class="year-select">
         <option v-for="year in displayYears" :key="year" :value="year">
             {{ year + 543 }} ({{ year }})
