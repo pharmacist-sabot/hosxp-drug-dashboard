@@ -158,7 +158,6 @@ onMounted(async () => {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    overflow: hidden;
     position: relative;
 }
 
@@ -172,8 +171,9 @@ onMounted(async () => {
     border-bottom: 2px solid var(--basil-500);
     flex-shrink: 0;
     gap: 20px;
-    z-index: 10;
+    z-index: 20;
     box-shadow: 0 2px 12px rgba(58, 82, 32, 0.25);
+    position: relative;
 }
 
 .header-brand {

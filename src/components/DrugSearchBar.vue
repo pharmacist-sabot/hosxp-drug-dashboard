@@ -159,7 +159,7 @@ function selectHighlighted() {
     border: 1px solid var(--border-active);
     border-radius: 10px;
     overflow: hidden;
-    z-index: 100;
+    z-index: 200;
     box-shadow: 0 8px 32px rgba(75, 54, 33, 0.15);
     max-height: 280px;
     overflow-y: auto;
