@@ -3,7 +3,7 @@
     <!-- Header -->
     <header class="app-header">
         <div class="header-brand">
-            <span class="brand-icon">🌿</span>
+            <img class="brand-icon" :src="logoUrl" alt="HosXP Drug Dashboard Logo" />
             <div class="brand-text">
                 <span class="brand-title">HosXP Drug Dashboard</span>
                 <span class="brand-sub">โรงพยาบาลสระโบสถ์</span>
@@ -64,6 +64,7 @@ import DrugSearchBar from './components/DrugSearchBar.vue'
 import TopDrugsPanel from './components/TopDrugsPanel.vue'
 import SummaryKpiBar from './components/SummaryKpiBar.vue'
 import DrugTrendChart from './components/DrugTrendChart.vue'
+import logoUrl from './assets/logo.svg'
 
 const dbStore = useDbConfigStore()
 const dashStore = useDashboardStore()
@@ -179,8 +180,11 @@ onMounted(async () => {
 }
 
 .brand-icon {
-    font-size: 26px;
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.35));
+    flex-shrink: 0;
 }
 
 .brand-text {
@@ -198,7 +202,7 @@ onMounted(async () => {
 
 .brand-sub {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.92);
     margin-top: 1px;
 }
 
@@ -228,9 +232,9 @@ onMounted(async () => {
 }
 
 .badge-ok {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--basil-500);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .badge-err {

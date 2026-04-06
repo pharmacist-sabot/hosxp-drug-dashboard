@@ -1,0 +1,33 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <style>
+      .bold-stroke {
+        stroke: #3E2723;
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+
+  <!-- Capsule 1: Red / White — top-left -->
+  <g transform="translate(15, 30)">
+    <path d="M25,0 H50 V50 H25 A25,25 0 0,1 25,0" fill="#D32F2F" class="bold-stroke" />
+    <path d="M50,0 H75 A25,25 0 0,1 75,50 H50 V0"  fill="#FFFFFF"  class="bold-stroke" />
+    <line x1="50" y1="3" x2="50" y2="47" class="bold-stroke" />
+  </g>
+
+  <!-- Capsule 2: Green / Pale-green — center -->
+  <g transform="translate(50, 75)">
+    <path d="M25,0 H50 V50 H25 A25,25 0 0,1 25,0" fill="#2E7D32" class="bold-stroke" />
+    <path d="M50,0 H75 A25,25 0 0,1 75,50 H50 V0"  fill="#E8F5E9"  class="bold-stroke" />
+    <line x1="50" y1="3" x2="50" y2="47" class="bold-stroke" />
+  </g>
+
+  <!-- Capsule 3: Amber / White — bottom-right -->
+  <g transform="translate(85, 120)">
+    <path d="M25,0 H50 V50 H25 A25,25 0 0,1 25,0" fill="#FBC02D" class="bold-stroke" />
+    <path d="M50,0 H75 A25,25 0 0,1 75,50 H50 V0"  fill="#FFFFFF"  class="bold-stroke" />
+    <line x1="50" y1="3" x2="50" y2="47" class="bold-stroke" />
+  </g>
+</svg>

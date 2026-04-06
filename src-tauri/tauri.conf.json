@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "🌸 HosXP Drug Dashboard",
+        "title": "HosXP Drug Dashboard",
         "width": 1440,
         "height": 900,
         "minWidth": 1024,
@@ -27,6 +27,14 @@
   "bundle": {
     "active": true,
     "targets": "all",
-    "icon": []
+    "icon": [
+      "icons/32x32.png",
+      "icons/64x64.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico",
+      "icons/icon.png"
+    ]
   }
 }

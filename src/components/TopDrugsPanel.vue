@@ -18,8 +18,8 @@
         <button v-for="(drug, idx) in drugs" :key="drug.icode" class="drug-row"
             :class="{ active: dashStore.selectedIcode === drug.icode }" @click="selectDrug(drug.icode)">
             <div class="drug-rank"
-                :style="idx === 0 ? 'color:#C9A227' : idx === 1 ? 'color:#9E9E9E' : idx === 2 ? 'color:#A0522D' : ''">{{
-                idx + 1 }}</div>
+                :style="idx === 0 ? 'color:#7B5800' : idx === 1 ? 'color:#666666' : idx === 2 ? 'color:#A0522D' : ''">{{
+                    idx + 1 }}</div>
             <div class="drug-info">
                 <div class="drug-name">{{ drug.drug_name }}</div>
                 <div class="drug-code">{{ drug.icode }}</div>
@@ -57,12 +57,7 @@ function selectDrug(icode: string) {
     dashStore.selectDrug(icode)
 }
 
-function rankClass(idx: number): string {
-    if (idx === 0) return 'rank-gold'
-    if (idx === 1) return 'rank-silver'
-    if (idx === 2) return 'rank-bronze'
-    return ''
-}
+
 </script>
 
 <style scoped>
@@ -212,7 +207,6 @@ function rankClass(idx: number): string {
             var(--bg-surface) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
-    opacity: 0;
 }
 
 .empty-state {

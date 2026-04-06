@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useDrugData } from '../composables/useDrugData'
 import { useDashboardStore } from '../stores/dashboard'
 import type { DrugItem } from '../stores/dashboard'
@@ -35,6 +35,20 @@ const highlightIdx = ref(0)
 const containerRef = ref<HTMLElement | null>(null)
 
 let debounceTimer: ReturnType<typeof setTimeout>
+
+function handleOutsideClick(event: MouseEvent) {
+    if (containerRef.value && !containerRef.value.contains(event.target as Node)) {
+        open.value = false
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('mousedown', handleOutsideClick)
+})
+
+onUnmounted(() => {
+    document.removeEventListener('mousedown', handleOutsideClick)
+})
 
 function onInput() {
     clearTimeout(debounceTimer)

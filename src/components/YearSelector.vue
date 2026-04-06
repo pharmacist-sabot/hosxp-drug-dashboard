@@ -48,7 +48,7 @@ function onYearChange() {
 .year-selector label {
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.92);
     white-space: nowrap;
 }
 
@@ -73,7 +73,7 @@ function onYearChange() {
 
 .year-select:focus,
 .year-select:hover {
-    border-color: var(--basil-400);
-    box-shadow: 0 0 0 3px var(--basil-glow);
+    border-color: var(--basil-300);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
 </style>

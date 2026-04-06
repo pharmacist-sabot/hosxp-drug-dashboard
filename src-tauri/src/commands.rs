@@ -48,7 +48,7 @@ async fn cache_set<T: Clone>(cache: &Cache<T>, key: String, val: T) {
 
 /// Wipe every cache.  Called by `connect_db` after a successful reconnect so
 /// that stale data from the previous connection is never served.
-pub async fn invalidate_all_caches() {
+pub(crate) async fn invalidate_all_caches() {
     YEARS_CACHE.write().await.clear();
     TOP_DRUGS_CACHE.write().await.clear();
     MONTHLY_CACHE.write().await.clear();
@@ -130,6 +130,15 @@ fn col_f64(row: &sqlx::mysql::MySqlRow, col: &str) -> f64 {
     }
     if let Ok(Some(v)) = row.try_get::<Option<f64>, _>(col) {
         return v;
+    }
+    if let Ok(v) = row.try_get::<i64, _>(col) {
+        return v as f64;
+    }
+    if let Ok(Some(v)) = row.try_get::<Option<i64>, _>(col) {
+        return v as f64;
+    }
+    if let Ok(v) = row.try_get::<u64, _>(col) {
+        return v as f64;
     }
     0.0
 }
@@ -334,7 +343,10 @@ pub async fn get_drug_monthly_qty(
     year: i32,
     icode: Option<String>,
 ) -> Result<Vec<DrugMonthlyData>, String> {
-    let cache_key = format!("monthly_{}_{}", year, icode.as_deref().unwrap_or("ALL"));
+    let cache_key = match &icode {
+        Some(ic) => format!("monthly_{}_drug_{}", year, ic),
+        None => format!("monthly_{}_<all>", year),
+    };
 
     // Check cache before acquiring a pool connection.
     if let Some(cached) = cache_get(&*MONTHLY_CACHE, &cache_key).await {
@@ -448,7 +460,11 @@ pub async fn get_available_years() -> Result<Vec<i32>, String> {
 /// Results are NOT cached because the dataset is small and the query is fast.
 #[tauri::command]
 pub async fn get_drug_list(search: String) -> Result<Vec<DrugItem>, String> {
-    let pattern = format!("%{}%", search);
+    let escaped = search
+        .replace('\\', "\\\\")
+        .replace('%', "\\%")
+        .replace('_', "\\_");
+    let pattern = format!("%{}%", escaped);
     with_pool(move |pool| {
         Box::pin(async move {
             let rows = sqlx::query(
