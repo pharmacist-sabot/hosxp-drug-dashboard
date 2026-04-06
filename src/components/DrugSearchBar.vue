@@ -1,12 +1,12 @@
 <template>
 <div class="search-bar" ref="containerRef">
     <div class="search-input-wrap">
-        <span class="search-icon">🔍</span>
+        <Search :size="15" :stroke-width="2.5" class="search-icon" />
         <input v-model="query" type="text" placeholder="ค้นหายา (รหัส / ชื่อยา)..." @input="onInput"
             @keydown.esc="close" @keydown.down.prevent="highlightNext" @keydown.up.prevent="highlightPrev"
             @keydown.enter.prevent="selectHighlighted" />
-        <span v-if="loading" class="loading-dot">⏳</span>
-        <button v-if="query" class="clear-btn" @click="clearSearch">✕</button>
+        <Loader2 v-if="loading" :size="15" :stroke-width="2.5" class="loading-dot spin" />
+        <button v-if="query" class="clear-btn" @click="clearSearch"><X :size="14" :stroke-width="2.5" /></button>
     </div>
 
     <div v-if="results.length > 0 && open" class="dropdown">
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { Search, Loader2, X } from 'lucide-vue-next'
 import { useDrugData } from '../composables/useDrugData'
 import { useDashboardStore } from '../stores/dashboard'
 import type { DrugItem } from '../stores/dashboard'

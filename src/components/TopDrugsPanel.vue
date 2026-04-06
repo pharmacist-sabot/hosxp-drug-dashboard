@@ -1,7 +1,7 @@
 <template>
 <div class="top-panel">
     <div class="panel-header">
-        <h3>🏆 Top {{ drugs.length || 10 }} ยาจ่ายสูงสุด</h3>
+        <h3><Trophy :size="15" :stroke-width="2.5" class="header-icon" /> Top {{ drugs.length || 10 }} ยาจ่ายสูงสุด</h3>
         <span class="year-badge">{{ selectedYear + 543 }}</span>
     </div>
 
@@ -10,7 +10,7 @@
     </div>
 
     <div v-else-if="!drugs.length" class="empty-state">
-        <div class="empty-icon">🌸</div>
+        <div class="empty-icon"><DatabaseZap :size="40" :stroke-width="1.5" /></div>
         <p>ยังไม่มีข้อมูล<br />กรุณาเชื่อมต่อฐานข้อมูล</p>
     </div>
 
@@ -35,6 +35,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Trophy, DatabaseZap } from 'lucide-vue-next'
 import { useDashboardStore } from '../stores/dashboard'
 import type { DrugSummary } from '../stores/dashboard'
 import { formatQty } from '../utils/ceDate'
@@ -84,6 +85,14 @@ function selectDrug(icode: string) {
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header-icon {
+    color: var(--basil-400);
+    flex-shrink: 0;
 }
 
 .year-badge {
@@ -222,7 +231,7 @@ function selectDrug(icode: string) {
 }
 
 .empty-icon {
-    font-size: 40px;
-    opacity: 0.5;
+    color: var(--text-muted);
+    opacity: 0.4;
 }
 </style>

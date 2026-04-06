@@ -1,7 +1,9 @@
 <template>
 <div class="kpi-bar">
     <div class="kpi-card" style="animation-delay: 0s">
-        <div class="kpi-icon">💊</div>
+        <div class="kpi-icon kpi-icon--pill">
+            <Pill :size="24" :stroke-width="2" />
+        </div>
         <div class="kpi-body">
             <div class="kpi-label">ยอดจ่ายยารวม</div>
             <div class="kpi-value">{{ formatQty(totalQty) }}</div>
@@ -12,7 +14,9 @@
     <div class="kpi-divider" />
 
     <div class="kpi-card" style="animation-delay: 0.1s">
-        <div class="kpi-icon">🧪</div>
+        <div class="kpi-icon kpi-icon--flask">
+            <FlaskConical :size="24" :stroke-width="2" />
+        </div>
         <div class="kpi-body">
             <div class="kpi-label">รายการยาที่จ่าย</div>
             <div class="kpi-value">{{ activeDrugs.toLocaleString() }}</div>
@@ -23,7 +27,9 @@
     <div class="kpi-divider" />
 
     <div class="kpi-card" style="animation-delay: 0.2s">
-        <div class="kpi-icon">📅</div>
+        <div class="kpi-icon kpi-icon--calendar">
+            <CalendarRange :size="24" :stroke-width="2" />
+        </div>
         <div class="kpi-body">
             <div class="kpi-label">เดือนที่จ่ายสูงสุด</div>
             <div class="kpi-value peak-month">{{ peakMonthName }}</div>
@@ -35,6 +41,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Pill, FlaskConical, CalendarRange } from 'lucide-vue-next'
 import { useDashboardStore } from '../stores/dashboard'
 import { formatQty, THAI_MONTHS_FULL } from '../utils/ceDate'
 
@@ -91,9 +98,36 @@ const peakMonthName = computed(() => {
 }
 
 .kpi-icon {
-    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
     flex-shrink: 0;
-    filter: drop-shadow(0 2px 4px rgba(78, 110, 47, 0.3));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover .kpi-icon {
+    transform: scale(1.08);
+}
+
+.kpi-icon--pill {
+    background: linear-gradient(135deg, rgba(78, 110, 47, 0.12), rgba(78, 110, 47, 0.04));
+    color: var(--basil-400);
+    box-shadow: 0 2px 8px rgba(78, 110, 47, 0.15);
+}
+
+.kpi-icon--flask {
+    background: linear-gradient(135deg, rgba(255, 142, 126, 0.15), rgba(255, 142, 126, 0.05));
+    color: var(--shrimp-500);
+    box-shadow: 0 2px 8px rgba(255, 107, 87, 0.12);
+}
+
+.kpi-icon--calendar {
+    background: linear-gradient(135deg, rgba(122, 98, 72, 0.12), rgba(122, 98, 72, 0.04));
+    color: var(--text-secondary);
+    box-shadow: 0 2px 8px rgba(122, 98, 72, 0.1);
 }
 
 .kpi-body {

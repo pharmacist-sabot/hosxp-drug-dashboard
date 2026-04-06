@@ -15,13 +15,13 @@
     </div>
 
     <div v-if="!data && !loading" class="empty-chart">
-        <div class="empty-bloom">🌸</div>
+        <div class="empty-bloom"><BarChart3 :size="52" :stroke-width="1.2" /></div>
         <p>ยังไม่มีข้อมูลกราฟ</p>
         <p class="empty-sub">เลือกรายการยาด้านซ้ายเพื่อแสดงแนวโน้มการจ่ายยา</p>
     </div>
 
     <div v-else-if="loading" class="loading-chart">
-        <div class="loading-bloom">⏳</div>
+        <div class="loading-bloom"><Loader2 :size="36" :stroke-width="2" class="spin" /></div>
         <p>กำลังโหลดข้อมูล...</p>
     </div>
 
@@ -31,6 +31,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { BarChart3, Loader2 } from 'lucide-vue-next'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -285,8 +286,8 @@ const chartOption = computed(() => {
 
 .empty-bloom,
 .loading-bloom {
-    font-size: 52px;
-    opacity: 0.4;
+    color: var(--text-muted);
+    opacity: 0.35;
 }
 
 .empty-sub {

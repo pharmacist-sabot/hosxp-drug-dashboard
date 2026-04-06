@@ -15,10 +15,12 @@
             <DrugSearchBar />
             <div class="connection-badge" :class="dbStore.connected ? 'badge-ok' : 'badge-err'"
                 @click="showSettings = true" title="คลิกเพื่อตั้งค่าการเชื่อมต่อ">
-                {{ dbStore.connected ? '🟢 เชื่อมต่อแล้ว' : '🔴 ไม่ได้เชื่อมต่อ' }}
+                <Wifi v-if="dbStore.connected" :size="13" :stroke-width="2.5" />
+                <WifiOff v-else :size="13" :stroke-width="2.5" />
+                {{ dbStore.connected ? 'เชื่อมต่อแล้ว' : 'ไม่ได้เชื่อมต่อ' }}
             </div>
             <button class="settings-btn" @click="showSettings = true" title="ตั้งค่า">
-                ⚙️
+                <Settings :size="18" :stroke-width="2" />
             </button>
         </div>
     </header>
@@ -44,8 +46,9 @@
 
     <!-- Error banner -->
     <div v-if="dashStore.error" class="error-banner">
-        <span>⚠️ {{ dashStore.error }}</span>
-        <button @click="dashStore.error = null">✕</button>
+        <TriangleAlert :size="16" :stroke-width="2.5" class="error-icon" />
+        <span>{{ dashStore.error }}</span>
+        <button @click="dashStore.error = null"><X :size="15" :stroke-width="2.5" /></button>
     </div>
 
     <!-- Connection Settings Modal -->
@@ -55,6 +58,7 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'
+import { Wifi, WifiOff, Settings, TriangleAlert, X } from 'lucide-vue-next'
 import { useDbConfigStore } from './stores/dbConfig'
 import { useDashboardStore } from './stores/dashboard'
 import { useDrugData } from './composables/useDrugData'
@@ -224,6 +228,9 @@ onMounted(async () => {
     border: 1px solid transparent;
     transition: opacity 0.2s, transform 0.1s;
     user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .connection-badge:hover {
@@ -260,13 +267,15 @@ onMounted(async () => {
     background: rgba(255, 255, 255, 0.18);
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 8px;
-    padding: 8px 12px;
+    padding: 8px;
     color: #ffffff;
     cursor: pointer;
-    font-size: 16px;
     line-height: 1;
     transition: background 0.2s, border-color 0.2s, transform 0.1s;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .settings-btn:hover {
@@ -344,6 +353,11 @@ onMounted(async () => {
     max-width: 620px;
     box-shadow: 0 4px 24px rgba(192, 57, 43, 0.15);
     animation: fadeSlideUp 0.3s ease;
+}
+
+.error-icon {
+    flex-shrink: 0;
+    color: var(--chili-300);
 }
 
 .error-banner span {

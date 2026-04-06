@@ -2,12 +2,13 @@
 <div class="settings-overlay" v-if="show" @click.self="$emit('close')">
     <div class="settings-modal">
         <div class="modal-header">
-            <h2>⚙️ ตั้งค่าการเชื่อมต่อฐานข้อมูล</h2>
-            <button class="close-btn" @click="$emit('close')">✕</button>
+            <h2><DatabaseIcon :size="20" :stroke-width="2" class="modal-title-icon" /> ตั้งค่าการเชื่อมต่อฐานข้อมูล</h2>
+            <button class="close-btn" @click="$emit('close')"><XIcon :size="18" :stroke-width="2" /></button>
         </div>
 
         <div class="connection-status" :class="dbStore.connected ? 'status-ok' : 'status-err'">
-            <span class="status-dot">{{ dbStore.connected ? '🟢' : '🔴' }}</span>
+            <CircleCheck v-if="dbStore.connected" :size="16" :stroke-width="2.5" />
+            <CircleX v-else :size="16" :stroke-width="2.5" />
             <span>{{ dbStore.connected ? 'เชื่อมต่อสำเร็จ' : 'ยังไม่ได้เชื่อมต่อ' }}</span>
         </div>
 
@@ -33,11 +34,13 @@
                 <input v-model="form.database" type="text" placeholder="hospdb" />
             </div>
 
-            <p class="security-note">⚠️ รหัสผ่านถูกเก็บใน localStorage เฉพาะบนเครื่องนี้เท่านั้น</p>
+            <p class="security-note"><ShieldAlert :size="14" :stroke-width="2" class="note-icon" /> รหัสผ่านถูกเก็บใน localStorage เฉพาะบนเครื่องนี้เท่านั้น</p>
 
             <div class="form-actions">
                 <button type="submit" class="btn-connect" :disabled="dbStore.connecting">
-                    {{ dbStore.connecting ? '⏳ กำลังเชื่อมต่อ...' : '🔌 ทดสอบการเชื่อมต่อ' }}
+                    <Loader2 v-if="dbStore.connecting" :size="16" :stroke-width="2.5" class="spin" />
+                    <Plug v-else :size="16" :stroke-width="2.5" />
+                    {{ dbStore.connecting ? 'กำลังเชื่อมต่อ...' : 'ทดสอบการเชื่อมต่อ' }}
                 </button>
             </div>
 
@@ -54,6 +57,7 @@
 
 <script setup lang="ts">
 import { reactive, ref, watch } from 'vue'
+import { Database as DatabaseIcon, X as XIcon, CircleCheck, CircleX, ShieldAlert, Plug, Loader2 } from 'lucide-vue-next'
 import { useDbConfigStore } from '../stores/dbConfig'
 
 const props = defineProps<{ show: boolean }>()
@@ -126,6 +130,14 @@ async function handleConnect() {
     font-size: 18px;
     font-weight: 700;
     color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-title-icon {
+    color: var(--basil-400);
+    flex-shrink: 0;
 }
 
 .close-btn {
@@ -230,6 +242,15 @@ async function handleConnect() {
     font-weight: 700;
     cursor: pointer;
     transition: opacity 0.2s, transform 0.1s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.note-icon {
+    flex-shrink: 0;
+    vertical-align: middle;
 }
 
 .btn-connect:hover:not(:disabled) {
