@@ -12,11 +12,11 @@ There are several ways you can contribute to this project:
 
 ## Development Workflow
 
-1. **Fork the Repository:** Start by forking the [main repository](https://github.com/pharmacist-sabot/hosxp-drug-dashboard).
+1. **Fork the Repository:** Start by forking the [main repository](https://github.com/suradet-ps/hosxp-drug-dashboard).
 2. **Clone your Fork:**
 
    ```bash
-   git clone https://github.com/your-username/hosxp-drug-dashboard.git
+   git clone https://github.com/suradet-ps/hosxp-drug-dashboard.git
    cd hosxp-drug-dashboard
    ```
 
